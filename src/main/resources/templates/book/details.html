@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Details</title>
+</head>
+<body th:object="${book}">
+<th:block th:insert="~{layout/header :: header}"></th:block>
+<h2>Book Details</h2>
+<dl>
+    <dt>ID : </dt>
+    <dd th:text="*{id()}"></dd>
+
+    <dt>TITLE : </dt>
+    <dd th:text="*{title()}"></dd>
+
+    <dt>AUTHOR : </dt>
+    <dd th:text="*{author()}"></dd>
+
+    <dt>DESCRIPTION : </dt>
+    <dd th:text="*{description()}"></dd>
+</dl>
+<a th:href="@{/book}">Back to list</a>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SpringBook</title>
+</head>
+<body>
+<div th:replace="~{layout/header :: header}"></div>
+<h1>Hello World!!!</h1>
+<h2 th:if="${session.get('cUser')} != null" th:text="${session.get('cUser')}"></h2>
+<a th:if="${session.get('cUser')} == null" th:href="@{/auth/login}">Login</a>
+<a th:if="${session.get('cUser')} != null" th:href="@{/auth/logout}">logout</a>
+</body>
+</html>

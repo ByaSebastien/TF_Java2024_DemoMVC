@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<th:block th:insert="~{layout/header :: header}"></th:block>
+<h2>Create form</h2>
+<form th:object="${form}" th:action="@{/book/update/{id} (id = ${currentBookId})}" method="post">
+    <div>
+        <label for="title">Title : </label>
+        <input id="title" type="text" th:field="*{title}">
+        <p style="color: red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
+    </div>
+    <div>
+        <label for="author">Author : </label>
+        <input id="author" type="text" th:field="*{author}">
+        <p style="color: red" th:if="${#fields.hasErrors('author')}" th:errors="*{author}"></p>
+    </div>
+    <div>
+        <label for="description">Description : </label>
+        <textarea id="description" type="text" th:field="*{description}" cols="20" rows="10">
+        </textarea>
+        <p style="color: red" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
+    </div>
+    <button type="submit">Create book</button>
+</form>
+<a th:href="@{/book}">Back to list</a>
+</body>
+</html>
