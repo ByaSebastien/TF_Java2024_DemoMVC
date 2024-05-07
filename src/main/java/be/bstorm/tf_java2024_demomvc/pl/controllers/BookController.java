@@ -90,4 +90,9 @@ public class BookController {
         return "redirect:/book";
     }
 
+    @GetMapping("/test")
+    public String test(Model model) {
+        throw new RuntimeException("My message");
+    }
+
 }
